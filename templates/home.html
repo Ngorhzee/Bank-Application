@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="\static\css\depositstyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span> <span>Bank NJay</span></h2>
+        </div> 
+
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="{{url_for('home')}}"  class="unactive" onclick="changeClass()"><span class="las la-igloo"></span>
+                       <span>Dashboard</span></a>
+                </li>
+               
+               <li>
+                   <a href="{{url_for('deposit')}} " onclick="changeClass()" class="unactive" class="active"><span class="las la-clipboard-list"></span>
+                      <span>Deposit</span></a>
+               </li>
+               <li>
+                   <a href="{{url_for('transfer')}}" class="unactive"><span class="las la-shopping-bag"></span>
+                      <span>Transfer</span></a>
+               </li>
+               <li>
+                   <a href="{{url_for('withdraw')}}" class="unactive"><span class="las la-receipt"></span>
+                      <span>Withdraw</span></a>
+               </li>
+               <li>
+                   <a href="{{url_for('logout')}}" id="unactive"><span class="las la-user-circle"></span>
+                      <span>Logout</span></a>
+               </li>
+              
+            </ul>
+        </div>
+   </div>
+
+   <div class="main-content">
+       <header>
+           <h2>
+               <label for="nav-toggle">
+                   <span class="las la-bars"></span>
+               </label>
+
+               {% block content %}{% endblock %}
+           </h2>
+
+         
+
+           <div class="user-wrapper">
+              
+               <div>
+                   <h4>Welcome, {{firstname}} {{lastname}}</h4>
+                  
+               </div>
+           </div>
+       </header>
+       {% block maincontent %}
+       {% endblock %}
+<script>
+       function changeClass() {
+           
+                document.querySelector('unactive').className = "active";
+                var button_class = document.querySelector('unactive').className;
+                // document.getElementById('myPara').innerHTML = "New class name: "
+                // + button_class;
+                
+            }
+</script>
+</body>
+</html>

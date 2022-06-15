@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Login and Registration Form Design</title>
+        <link rel="stylesheet" href="/static/css/signin.css">
+</head>
+<body>
+   <h1 style="font-family: 'Roboto', sans-serif;padding-top: 20px;margin:0 auto ; text-align: center;">WELCOME TO BANK NJAY</h1>
+    
+    <div class="Login-page">
+    <div class="form">
+        {% if not session.passwords %}
+        <p style="color:white;">{{msg}}</p>
+        {% endif %}
+        {% if success %}
+        <div class="alert alert-secondary" role="alert" style="color: white;">
+            Your Account Number has been sent to your mail successfully.You can now login
+          </div>
+        {% endif %}
+        <p style="color: white;">{{msg}}</p>
+        <form class="register-form" method="POST" action="{{url_for('register')}}" >
+        <p><input type="text" placeholder="First Name" name="fn" required data-validation-required-message="First Name cannot be blank"/></p>
+        <p><input type="text" placeholder="Last Name" name="ln" required data-validation-required-message="lastName cannot be blank"/></p>
+        <p><input type="email" placeholder="Email" name="email"  required data-validation-required-message="Please Enter Your Email"/></p>
+        <p><input type="password" placeholder="password" name="password" required data-validation-required-message="Password cannot be blank"/></p>
+        <button type="submit" value="submit">Sign Up</button>   
+        <!-- <p><input type="submit" value="submit">Sign up</p> -->
+
+        <p class="message">Already Registered? <a href="">Login</a>
+        </p>  
+        </form>
+
+        <form class="Login-form" method="POST" action="{{url_for('login')}}">
+        <input type="number" placeholder="Account Number" name="accountnumber"/>
+        <input type="password" placeholder="password" name="password"/>
+        <button>Login</button> 
+        <p class="message">Not Registered? <a href="#" >Register</a>
+        </p>
+        </form>
+        
+    </div>
+    </div>
+
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+
+    <script>
+    $('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");    
+    });
+
+    </script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+</body>
+</html>

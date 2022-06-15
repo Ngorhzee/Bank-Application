@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% block content %} Withdraw {% endblock %}
+{% block maincontent %}
+
+        <main>
+            <div class="Withdraw-page">
+                <div class="form">
+                    <form class="Login-form"method='POST' action="{{url_for('withdraw')}}">
+                        <p style="color: red;padding-bottom: 10px;">{{msg}}</p>
+                    <input type="number" placeholder="Amount"name='amount' required data-validation-required-message="Enter a Valid Amount"/>
+                    <input type="password" placeholder="pin"name="pin"required data-validation-required-message="Password Required"/>
+                    <button type="submit">Withdraw</button> 
+                    <p class="message">Bank NJay <br> Giving you the best with ease
+                    </p>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+{% endblock %}
+</body>
+</html>

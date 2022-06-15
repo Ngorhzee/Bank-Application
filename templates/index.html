@@ -1,0 +1,177 @@
+{% extends 'home.html' %}
+{% block content %} Dashboard {% endblock %}
+{% block names%} {{firstname}} {{lastname}} {% endblock %}
+{% block maincontent %}
+        <main>
+            <div class="cards">
+                <div class="card-single" >
+                    <div>
+                        <h4><span> Total Deposit</span></h4>
+                        <h4 style="color: black;">${{finalAmount}}</h4>
+                    </div>
+                    <div>
+                        <span class="las la-users"></span>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div >
+                        <h4><span>Total Withdrawal</span></h4>
+                        <h4 style="color: black;">${{finalAmountW}}</h4>
+                    </div>
+                `   <div>
+                        <span class="las la-clipboard"></span>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h4><span>Total Transfers</span></h4>
+                        <h4 style="color: black;">{{finalAmountT}}</h4>
+                    </div>
+                    <div>
+                        <span class="las la-shopping-bag"></span>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                     <div>
+                         <h1 id="totalBalance">${{session.totalBalance}}</h1>
+                         <!-- <h1 id="totalBalance">{{session.balance}}</h1> -->
+                         <span>Account Balance</span>
+                     </div>
+                     <div>
+                        <span class="lab la-google-wallet"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-grid">
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Account Statement</h3>
+
+                            <button>see all <span class="las la-arrow-right"></span></button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <th style="padding:5px;">AccountNumber</th>
+                                    <th style="padding:5px;">Transaction Type</th>
+                                    <th style="padding:5px;">Amount</th>
+                                    <th style="padding:5px;">Date/Time</th>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for item in allstatement %}
+                                    
+                                    <tr>
+                                        {% if item.3 == session.accountno %}
+                                        <td>{{item.3}}</td>
+                                        {%else %}
+                                        <td>{{item.1}}</td>
+                                        {% endif %}
+                                        <td>{{item.2}}</td>
+                                        <td>${{item.4}}</td>
+                                        <td>{{item.5}}</td>
+                                         
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            </div>
+
+                            <div class="card body">
+                                <div class="table-responsive">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="customers">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>News Customer</h3>
+                            <button>see all <span class="las la-arrow-right"></span></button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="img/IMG_2045.JPG" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Amolo Ngozi Blessing</h4>
+                                        <small>Koder</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div>
+                                    <img src="img/IMG_2045.JPG" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Amolo Ngozi Blessing</h4>
+                                        <small>Koder</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div>
+                                    <img src="img/IMG_2045.JPG" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Amolo Ngozi Blessing</h4>
+                                        <small>Koder</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div>
+                                    <img src="img/IMG_2045.JPG" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Amolo Ngozi Blessing</h4>
+                                        <small>Koder</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+
+
+                        </div> -->
+                    <!-- </div>
+             
+
+                </div> -->
+            </div>
+
+        </main>
+    </div>
+{% endblock %}
+</body>
+</html>

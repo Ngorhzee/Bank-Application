@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+{% block content %} Transfer {% endblock %}
+
+{% block maincontent %}
+        <main>
+            <div class="Transfer-page">
+                <div class="form">
+                    <form class="Login-form" method="POST">
+                        <p style="color:white; padding-bottom: 10px;">{{msg}}</p>
+                    <input type="number" placeholder=" Recipient Account Number"name="accountnumber" required data-validation-required-message="Account Number cannot be blank"/>
+                    
+                    <!-- <input type="text" placeholder="Bank Name"required data-validation-required-message="Enter a Valid Amount"/> -->
+                    <input type="number" placeholder="Amount" name="amount"/>
+                    <input type="password" placeholder="password" name="pin"/>
+                    <button type="submit">Transfer</button> 
+                    <p class="message">Bank NJay <br> Giving you the best with ease
+                    </p>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+{% endblock %}
+</body>
+</html>

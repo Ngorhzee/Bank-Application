@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% block content %} Deposit {% endblock %}
+
+{% block maincontent %}
+        <main>
+            <div class="Deposit-page">
+                <div class="form">
+                    <form class="Login-form" method="POST" action="{{url_for('deposit')}}">
+                        <p style="color: white;">{{msg}}</p>
+                 
+                    <input type="number" placeholder="Amount" name="amount" required data-validation-required-message="Enter a Valid Amount"/>
+                    <input type="password" placeholder="pin" name="pin"required data-validation-required-message="Password Required"/>
+                    <button type="submit">Deposit</button> 
+                    <p class="message">Bank NJay <br> Giving you the best with ease
+                    </p>
+                    </form>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+{% endblock %}
+</html>
